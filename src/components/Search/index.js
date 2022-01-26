@@ -1,17 +1,13 @@
 import React from 'react';
-import Autocomplete from '../Autocomplete';
+import StockerPicker from '../StockerPicker';
 import { Box } from '@chakra-ui/react';
 import { debouncer } from '../../utils/debouncer';
-import { useAutocomplete } from '../../hooks/useAutocomplete';
+import useStockerPicker from '../../hooks/useStockerPicker';
 import { useNavigate } from 'react-router-dom';
 
 const SearchPage = () => {
   const navigate = useNavigate();
-  const [setValue, results] = useAutocomplete();
-
-  React.useEffect(() => {
-    console.log(results);
-  }, [results]);
+  const [setValue, results] = useStockerPicker();
 
   const handleSelection = result => {
     if (result.symbol) navigate(`/stock/?q=${result.symbol}`);
@@ -19,7 +15,7 @@ const SearchPage = () => {
 
   return (
     <Box p="8">
-      <Autocomplete
+      <StockerPicker
         onSelect={handleSelection}
         placeholder="Search by stock symbol"
         results={results}

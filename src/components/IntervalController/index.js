@@ -12,7 +12,7 @@ const IntervalController = ({ onIntervalChange = () => {} }) => {
   return (
     <GridItem colSpan={12}>
       <HStack as="form" alignItems="center" onSubmit={handleSubmit}>
-        <Text>Interval:&nbsp;</Text>
+        <Text whiteSpace="nowrap">Refresh Rate:&nbsp;</Text>
         <Input
           value={interval}
           onChange={e => setInterval(e.target.value)}

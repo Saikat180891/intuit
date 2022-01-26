@@ -2,7 +2,7 @@ import { Box, Input, Flex, Button, Text } from '@chakra-ui/react';
 import React from 'react';
 import { CloseIcon } from '@chakra-ui/icons';
 
-const Autocomplete = ({
+const StockerPicker = ({
   value,
   onChange = () => {},
   onSelect = () => {},
@@ -131,4 +131,4 @@ const attributes = {
   },
 };
 
-export default Autocomplete;
+export default StockerPicker;

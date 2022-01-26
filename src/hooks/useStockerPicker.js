@@ -1,7 +1,7 @@
 import React from 'react';
 import searchByTerm from '../services/search.service';
 
-export const useAutocomplete = () => {
+const useStockerPicker = () => {
   const [value, setValue] = React.useState('');
   const [results, setResults] = React.useState([]);
 
@@ -15,3 +15,5 @@ export const useAutocomplete = () => {
 
   return [setValue, results];
 };
+
+export default useStockerPicker;
