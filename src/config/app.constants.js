@@ -1,0 +1,1 @@
+export const API_KEY = 'BS370BMATF1RCTFO';
