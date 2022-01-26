@@ -7,17 +7,12 @@ const useStockDetails = (initialInterval = 0) => {
   const [interval, setInterval] = React.useState(initialInterval);
   const [details, setDetails] = React.useState({});
   const [calls, setCalls] = React.useState(0);
-  const callbackRef = React.useRef();
 
   React.useEffect(() => {
-    callbackRef.current = () => {
+    const callback = () => {
       const query = location.search.split('=')[1];
       getCompanyOverviewBySymbol(query).then(setDetails);
     };
-  }, [location]);
-
-  React.useEffect(() => {
-    const callback = () => callbackRef.current();
     if (interval < 3000) {
       callback();
     } else {
@@ -27,7 +22,7 @@ const useStockDetails = (initialInterval = 0) => {
       }, interval);
       return () => clearTimeout(id);
     }
-  }, [interval, calls]);
+  }, [interval, calls, location]);
 
   return [details, setInterval];
 };

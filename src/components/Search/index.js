@@ -13,6 +13,10 @@ const SearchPage = () => {
     if (result.symbol) navigate(`/stock/?q=${result.symbol}`);
   };
 
+  const handleSearch = symbol => {
+    if (symbol) navigate(`/stock/?q=${symbol}`);
+  };
+
   return (
     <Box p="8">
       <StockerPicker
@@ -20,7 +24,7 @@ const SearchPage = () => {
         placeholder="Search by stock symbol"
         results={results}
         onChange={debouncer(setValue)}
-        onSearch={setValue}
+        onSearch={handleSearch}
       />
     </Box>
   );

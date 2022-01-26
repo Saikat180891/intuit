@@ -28,6 +28,11 @@ const StockerPicker = ({
     onChange(inputRef.current.value);
   };
 
+  const handleClickSearch = () => {
+    onSearch(inputRef.current.value);
+    setOpenDropdown(false);
+  };
+
   const handleClear = () => {
     inputRef.current.value = '';
     onChange('');
@@ -63,10 +68,7 @@ const StockerPicker = ({
             </Box>
           )}
         </Box>
-        <Button
-          borderLeftRadius={0}
-          onClick={() => onSearch(inputRef.current.value)}
-        >
+        <Button borderLeftRadius={0} onClick={handleClickSearch}>
           Search
         </Button>
       </Flex>
